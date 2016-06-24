@@ -1,0 +1,14 @@
+version: '2'
+#modified from within docker
+services:
+  sublime:
+    container_name: 'sublime'
+    build:
+      context: sublime-text-3
+    volumes:
+     - $HOME/.config/sublime-text-3/:/root/.config/sublime-text-3
+     - /tmp/.X11-unix:/tmp/.X11-unix
+     - ~/sources:/sources
+    environment:
+      DISPLAY: $DISPLAY
+      LANG: en_US.UTF-8
