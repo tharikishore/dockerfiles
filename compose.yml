@@ -1,0 +1,122 @@
+version: '2'
+
+services:
+  sublime:
+    container_name: sublime
+    build:
+      context: sublime-text-3
+    volumes:
+     - $HOME/.config/sublime-text-3/:/root/.config/sublime-text-3
+     - /tmp/.X11-unix:/tmp/.X11-unix
+     - ~/sources:/sources
+    environment:
+      DISPLAY: ${DISPLAY}
+      LANG: en_US.UTF-8
+  firefox:
+    container_name: firefox
+    build:
+      context: firefox
+    volumes:
+     - /tmp/.X11-unix:/tmp/.X11-unix
+    environment:
+      DISPLAY: ${DISPLAY}
+      LANG: en_US.UTF-8
+  geary:
+    container_name: geary
+    build:
+      context: geary
+    volumes:
+     - /tmp/.X11-unix:/tmp/.X11-unix
+     - /etc/ssl/certs/:/etc/ssl/certs/
+    environment:
+      DISPLAY: ${DISPLAY}
+  gcloud:
+    container_name: gcloud
+    build:
+      context: gcloud
+    volumes:
+     - /tmp/.X11-unix:/tmp/.X11-unix
+    environment:
+      DISPLAY: ${DISPLAY}
+  hollywood:
+    container_name: hollywood
+    build:
+      context: hollywood
+    volumes:
+     - /tmp/.X11-unix:/tmp/.X11-unix
+    environment:
+      DISPLAY: unix$DISPLAY
+    tty: true
+    stdin_open: true
+  lynx:
+    container_name: lynx
+    build:
+      context: lynx
+    volumes:
+     - /tmp/.X11-unix:/tmp/.X11-unix
+    environment:
+      DISPLAY: ${DISPLAY}
+    tty: true
+    stdin_open: true
+  visualstudio:
+    container_name: visualstudio
+    build:
+      context: visualstudio
+    volumes:
+     - /tmp/.X11-unix:/tmp/.X11-unix
+    environment:
+      DISPLAY: ${DISPLAY}
+  atom:
+    container_name: atom
+    build:
+      context: atom
+    volumes:
+     - /tmp/.X11-unix:/tmp/.X11-unix
+     - ~/sources:/sources
+    environment:
+      DISPLAY: ${DISPLAY}
+  wireshark:
+    container_name: wireshark
+    build:
+      context: wireshark
+    volumes:
+     - /tmp/.X11-unix:/tmp/.X11-unix
+     - /etc/localtime:/etc/localtime:ro
+    environment:
+      DISPLAY: unix$DISPLAY
+  zsh:
+    container_name: zsh
+    build:
+      context: zsh
+    volumes:
+     - /tmp/.X11-unix:/tmp/.X11-unix
+    environment:
+      DISPLAY: unix$DISPLAY
+    tty: true
+    stdin_open: true
+  keepass2:
+    container_name: keepass2
+    build:
+      context: keepass2
+    volumes:
+     - /tmp/.X11-unix:/tmp/.X11-unix
+    environment:
+      DISPLAY: unix$DISPLAY
+  fish:
+    container_name: fish
+    build:
+      context: fish
+    volumes:
+     - /tmp/.X11-unix:/tmp/.X11-unix
+    environment:
+      DISPLAY: unix$DISPLAY
+    tty: true
+    stdin_open: true
+  cathode:
+    container_name: cathode
+    build:
+      context: cathode
+    volumes:
+     - /tmp/.X11-unix:/tmp/.X11-unix
+    environment:
+      DISPLAY: unix$DISPLAY
