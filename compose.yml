@@ -6,12 +6,15 @@ services:
     build:
       context: sublime-text-3
     volumes:
-     - $HOME/.config/sublime-text-3/:/root/.config/sublime-text-3
+     - $HOME/.config/sublime-text-3:$HOME/.config/sublime-text-3
+     - $HOME/.local/share/recently-used.xbel:$HOME/.local/share/recently-used.xbel
      - /tmp/.X11-unix:/tmp/.X11-unix
-     - ~/sources:/sources
+     - ~/sources:$HOME/Documents
     environment:
       DISPLAY: ${DISPLAY}
       LANG: en_US.UTF-8
+      NEWUSER: $USER
+      HOME: $HOME
   firefox:
     container_name: firefox
     build:
@@ -58,14 +61,14 @@ services:
       DISPLAY: ${DISPLAY}
     tty: true
     stdin_open: true
-  visualstudio:
-    container_name: visualstudio
-    build:
-      context: visualstudio
-    volumes:
-     - /tmp/.X11-unix:/tmp/.X11-unix
-    environment:
-      DISPLAY: ${DISPLAY}
+  # visualstudio:
+  #   container_name: visualstudio
+  #   build:
+  #     context: visualstudio
+  #   volumes:
+  #    - /tmp/.X11-unix:/tmp/.X11-unix
+  #   environment:
+  #     DISPLAY: ${DISPLAY}
   atom:
     container_name: atom
     build:
